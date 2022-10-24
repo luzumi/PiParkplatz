@@ -81,8 +81,8 @@
 
     <div class="content">
         <div class="title m-b-md">
-            @foreach($cars as $car)
-                {{ $car->typ }} . {{ $car->kennzeichen }} . {{ $car->id%2===0? 'parkt' : 'parkt nicht' }} . <br>
+            @foreach($parking_spots as $parking_spot)
+                {{ $parking_spot->id }} . {{ $parking_spot->section }} . <br>
             @endforeach
         </div>
     </div>

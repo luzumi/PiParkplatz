@@ -81,7 +81,7 @@
 
     <div class="content">
         <div class="title m-b-md">
-            {{ $car->kennzeichen }} . {{ $car->typ }} . {{ $car->status? 'parkt':'nicht da' }}
+            {{ $car->typ }} . {{ $car->kennzeichen }} . <br>
         </div>
     </div>
 </div>
