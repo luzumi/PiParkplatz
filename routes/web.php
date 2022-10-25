@@ -2,6 +2,7 @@
 
 use App\Car;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,7 +24,15 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/info', 'InfoController@info')->name('info');
+
 Route::get('/create_car', 'CarController@create_car')->name('create_car');
+
+Route::post('/create_car', 'CarController@save')->name('save_created_car');
+
+Route::get('/show_car', 'CarController@show_a_car')->name('show_a_car');
+
+Route::post('/show_this_car', 'CarController@show_this_car')->name('show_this_car');
 
 Route::get('/car_list', 'CarController@car_list')->name('car_list');
 
