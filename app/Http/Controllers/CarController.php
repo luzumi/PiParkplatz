@@ -6,7 +6,6 @@ use App\Car;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\ValidationException;
-use function React\Promise\all;
 
 class CarController extends Controller
 {
@@ -23,7 +22,7 @@ class CarController extends Controller
     {
         $this->validate($request, [
             'typ' => 'required|string|min:3',
-            'kennzeichen' => 'required|string|min:4|max:9',
+            'kennzeichen' => 'required|string|min:4|max:10',
             'status' => 'boolean'
         ]);
 
@@ -43,11 +42,11 @@ class CarController extends Controller
      */
     protected function show_this_car(Request $request)
     {
-        $this->validate($request, ['id' => "require|number"]);
+        $this->validate($request, ['id' => "required"]);
         $id = $request->id;
         $cars = DB::table('cars')->where('id', $id);
-
-        return view('show_this_car', compact('cars'));
+        $cars = $cars->get();
+        return view('car_list', compact('cars'));
     }
 
     protected function create_car()

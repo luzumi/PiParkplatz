@@ -14,7 +14,9 @@
     <form method="post" action="/show_this_car">
         {{ csrf_field() }}
         Fahrzeugauswahl zu Anzeige:
-        <select class="form-control" id="status" name="car[]" multiple>
+        <label for="id">
+
+        </label><select class="form-control" id="id" name="id" multiple>
             @for($i=0;$i<$cars_count; $i++)
                 <option value= {{ $i }}>{{ $i }}</option>
             @endfor()

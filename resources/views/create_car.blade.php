@@ -16,6 +16,7 @@
         Fahrzeug-Typ: <input type="text" class="form-control" id="typ" name="typ">
         Fahrzeug-Kennzeichen: <input type="text" class="form-control" id="kennzeichen" name="kennzeichen">
         Status:
+        <label for="status">Status: </label>
         <select class="form-control" id="status" name="status">
             <option value="0">FALSE</option>
             <option value="1">TRUE</option>
