@@ -21,15 +21,17 @@ class CarController extends Controller
     protected function save(Request $request): \Illuminate\Http\RedirectResponse
     {
         $this->validate($request, [
-            'typ' => 'required|string|min:3',
-            'kennzeichen' => 'required|string|min:4|max:10',
+            'manufacturer' => 'required|string|min:3',
+            'model' => 'required|string',
+            'sign' => 'required|string|min:4|max:10',
             'status' => 'boolean'
         ]);
 
         $car = new Car();
 
-        $car->typ = $request->typ;
-        $car->kennzeichen = $request->kennzeichen;
+        $car->manufacturer = $request->manufacturer;
+        $car->model = $request->model;
+        $car->sign = $request->sign;
         $car->status = $request->status;
 
         $car->save();

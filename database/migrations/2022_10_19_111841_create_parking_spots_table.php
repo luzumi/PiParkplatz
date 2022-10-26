@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateRightsTable extends Migration
+class CreateParkingSpotsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,12 @@ class CreateRightsTable extends Migration
      */
     public function up()
     {
-        Schema::create('rights', function (Blueprint $table) {
-            $table->id();;
-            $table->text('right')->unique();
+        Schema::create('parking_spots', function (Blueprint $table) {
+            $table->id();
+            $table->integer('number');
+            $table->boolean('status')->default(true);
+            $table->enum('section', ['north', 'east', 'south', 'west']);
+
             $table->timestamps();
         });
     }
@@ -27,6 +30,6 @@ class CreateRightsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('rights');
+        Schema::dropIfExists('parking_spots');
     }
 }

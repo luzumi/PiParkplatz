@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class ParkingSpot extends Model
 {
@@ -12,6 +13,14 @@ class ParkingSpot extends Model
      * @var array
      */
     protected $fillable = [
-        'status', 'section'
+        'status', 'section', 'number'
     ];
+
+    /**
+     * @return HasMany
+     */
+    public function user(): HasMany
+    {
+        return $this->hasMany(User::class);
+    }
 }

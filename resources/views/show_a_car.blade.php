@@ -18,7 +18,7 @@
 
         </label><select class="form-control" id="id" name="id" multiple>
             @for($i=0;$i<$cars_count; $i++)
-                <option value= {{ $i }}>{{ $i }}</option>
+                <option value= {{ $i + 1 }}>{{ $i + 1 }}</option>
             @endfor()
         </select>
 

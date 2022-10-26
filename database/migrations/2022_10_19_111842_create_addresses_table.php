@@ -19,7 +19,7 @@ class CreateAddressesTable extends Migration
             $table->text('ort');
             $table->text('street');
             $table->integer('number');
-            $table->timestamps();
+            $table->timestamp('created at')->useCurrent();
         });
     }
 

@@ -15,9 +15,9 @@ class CreateUserCarTable extends Migration
     {
         Schema::create('user_car', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreignId('car_id')->references('id')->on('cars')->onDelete('cascade');
-            $table->timestamps();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->foreignId('car_id')->constrained()->onDelete('cascade');
+            $table->timestamp('created at')->useCurrent();
         });
     }
 

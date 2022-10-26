@@ -16,8 +16,8 @@ class CreateParkingSpotUserTable extends Migration
         Schema::create('parking_spot_user', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->foreignId('park_id')->constrained()->onDelete('cascade');
-            $table->timestamps();
+            $table->foreignId('parking_spot_id')->constrained()->onDelete('cascade');
+            $table->timestamp('created at')->useCurrent();
         });
     }
 
@@ -28,11 +28,6 @@ class CreateParkingSpotUserTable extends Migration
      */
     public function down()
     {
-        Schema::table('parking_spot_user', function(Blueprint $table)
-        {
-            $table->dropForeign('user_id');
-            $table->dropForeign('park_id');
-            Schema::dropIfExists('parking_spot_user');
-        });
+        Schema::dropIfExists('parking_spot_user');
     }
 }

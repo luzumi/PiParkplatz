@@ -20,10 +20,6 @@ class CreateCartypesTable extends Migration
 
     public function down()
     {
-        Schema::table('car_types', function(Blueprint $table)
-        {
-            $table->dropForeign('user_id');
-            Schema::dropIfExists('car_types');
-        });
+        Schema::dropIfExists('car_types');
     }
 }

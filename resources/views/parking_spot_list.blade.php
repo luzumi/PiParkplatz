@@ -7,7 +7,7 @@
         <div class="title m-b-md">
 
             @foreach($parking_spots as $parking_spot)
-                {{ $parking_spot->id }}  {{ $parking_spot->section }}  <br>
+                {{ $parking_spot->number }} - {{ $parking_spot->section }} - {{ $parking_spot->status ? 'Belegt' : 'Frei' }}  <br>
             @endforeach
         </div>
     </div>

@@ -9,22 +9,44 @@ class Car extends Model
     /**
      * @var string
      */
-    protected $typ;
+    protected $manufacturer;
+
     /**
      * @var string
      */
-    protected $kennzeichen;
+    protected $model;
+
+    /**
+     * @var string
+     */
+    protected $sign;
+
+    /**
+     * @var string
+     */
+    protected $color;
+
     /**
      * @var boolean
      */
     protected $status;
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'typ', 'kennzeichen', 'status',
+        'manufacturer', 'typ', 'color', 'sign',
     ];
 
+
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function user(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(User::class);
+    }
 }

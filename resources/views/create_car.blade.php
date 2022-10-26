@@ -13,10 +13,12 @@
 
     <form method="post" action="/create_car">
         {{ csrf_field() }}
-        Fahrzeug-Typ: <input type="text" class="form-control" id="typ" name="typ">
-        Fahrzeug-Kennzeichen: <input type="text" class="form-control" id="kennzeichen" name="kennzeichen">
-        Status:
-        <label for="status">Status: </label>
+
+        <label for="manufacturer">Fahrzeug-Hersteller:</label><input type="text" class="form-control" id="manufacturer" name="manufacturer">
+        <label for="model">Fahrzeug-Modell: </label><input type="text" class="form-control" id="model" name="model">
+        <label for="sign">Fahrzeug-Kennzeichen: </label><input type="text" class="form-control" id="sign" name="sign">
+
+        <label for="status"> Status: </label>
         <select class="form-control" id="status" name="status">
             <option value="0">FALSE</option>
             <option value="1">TRUE</option>
