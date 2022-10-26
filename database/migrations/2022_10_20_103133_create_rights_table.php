@@ -15,7 +15,7 @@ class CreateRightsTable extends Migration
     {
         Schema::create('rights', function (Blueprint $table) {
             $table->id();
-            $table->string('recht');
+            $table->string('right');
             $table->timestamps();
         });
     }

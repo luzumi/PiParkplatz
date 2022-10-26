@@ -13,10 +13,10 @@ class CreateUserAdressTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_adresse', function (Blueprint $table) {
+        Schema::create('user_address', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id');
-            $table->integer('adresse_id');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->foreignId('address_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -28,6 +28,11 @@ class CreateUserAdressTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_adresse');
+        Schema::table('user_address', function(Blueprint $table)
+        {
+            $table->dropForeign('user_id');
+            $table->dropForeign('address_id');
+            Schema::dropIfExists('user_address');
+        });
     }
 }
