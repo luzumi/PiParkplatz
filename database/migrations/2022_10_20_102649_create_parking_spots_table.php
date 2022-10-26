@@ -15,8 +15,8 @@ class CreateParkingSpotsTable extends Migration
     {
         Schema::create('parking_spots', function (Blueprint $table) {
             $table->id();
-            $table->boolean('status');
-            $table->string('section');
+            $table->boolean('status')->default(true);
+            $table->enum('section', ['north', 'east', 'south', 'west']);
             $table->timestamps();
         });
     }
