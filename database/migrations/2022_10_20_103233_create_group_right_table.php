@@ -15,8 +15,8 @@ class CreateGroupRightTable extends Migration
     {
         Schema::create('group_right', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('group_id')->constrained()->onDelete('cascade');
-            $table->foreignId('right_id')->constrained()->onDelete('cascade');
+            $table->foreignId('group_id')->references('id')->on('groups')->onDelete('cascade');
+            $table->foreignId('right_id')->references('id')->on('rights')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -28,11 +28,6 @@ class CreateGroupRightTable extends Migration
      */
     public function down()
     {
-        Schema::table('group_right', function(Blueprint $table)
-        {
-            $table->dropForeign('group_id');
-            $table->dropForeign('right_id');
-            Schema::dropIfExists('group_right');
-        });
+        Schema::dropIfExists('group_right');
     }
 }

@@ -15,9 +15,11 @@ class CreateCarsTable extends Migration
     {
         Schema::create('cars', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('car_type_id')->constrained()->cascadeOnDelete();
-            $table->string('sign');
-            $table->boolean('status');
+            $table->text('manufacturer');
+            $table->text('model');
+            $table->text('color')->nullable();
+            $table->text('sign')->unique();
+            $table->boolean('status')->default(false);
             $table->timestamps();
         });
     }
@@ -30,10 +32,6 @@ class CreateCarsTable extends Migration
      */
     public function down()
     {
-        Schema::table('cars', function(Blueprint $table)
-        {
-            $table->dropForeign('car_types_id');
-            Schema::dropIfExists('cars');
-        });
+        Schema::dropIfExists('cars');
     }
 }

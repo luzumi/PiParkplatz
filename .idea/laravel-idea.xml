@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="LaravelIdeaMainSettings">
+    <option name="codeGeneration">
+      <LaravelCodeGeneration>
+        <option name="addPhpDocs" value="true" />
+        <option name="generationBooleanSettings">
+          <map>
+            <entry key="createView:inTheNewMenu" value="true" />
+          </map>
+        </option>
+      </LaravelCodeGeneration>
+    </option>
+    <option name="defaultLanguage" value="de" />
     <option name="frameworkFound" value="true" />
   </component>
 </project>

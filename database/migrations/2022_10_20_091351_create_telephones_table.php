@@ -15,8 +15,8 @@ class CreateTelephonesTable extends Migration
     {
         Schema::create('telephones', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->string('number');
+            $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->text('number')->nullable();
             $table->timestamps();
         });
     }
@@ -28,10 +28,6 @@ class CreateTelephonesTable extends Migration
      */
     public function down()
     {
-        Schema::table('telephones', function(Blueprint $table)
-        {
-            $table->dropForeign('user_id');
-            Schema::dropIfExists('telephones');
-        });
+        Schema::dropIfExists('telephones');
     }
 }

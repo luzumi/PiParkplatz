@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUserAdressTable extends Migration
+class CreateUserAddressTable extends Migration
 {
     /**
      * Run the migrations.
@@ -28,11 +28,6 @@ class CreateUserAdressTable extends Migration
      */
     public function down()
     {
-        Schema::table('user_address', function(Blueprint $table)
-        {
-            $table->dropForeign('user_id');
-            $table->dropForeign('address_id');
-            Schema::dropIfExists('user_address');
-        });
+        Schema::dropIfExists('user_address');
     }
 }

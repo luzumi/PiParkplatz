@@ -14,8 +14,8 @@ class CreateRightsTable extends Migration
     public function up()
     {
         Schema::create('rights', function (Blueprint $table) {
-            $table->id();
-            $table->string('right');
+            $table->id();;
+            $table->text('right')->unique();
             $table->timestamps();
         });
     }
