@@ -13,12 +13,12 @@ class CreateAdressesTable extends Migration
      */
     public function up()
     {
-        Schema::create('adresses', function (Blueprint $table) {
+        Schema::create('addresses', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->string('ort');
-            $table->string('strasse');
-            $table->string('nummer');
+            $table->string('street');
+            $table->string('number');
             $table->timestamps();
         });
     }
@@ -30,6 +30,10 @@ class CreateAdressesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('adresses');
+        Schema::table('addresses', function(Blueprint $table)
+        {
+            $table->dropForeign('user_id');
+            Schema::dropIfExists('addresses');
+        });
     }
 }
