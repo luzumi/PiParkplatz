@@ -8,5 +8,6 @@ use Faker\Generator as Faker;
 $factory->define(Right::class, function (Faker $faker) {
     return array(
         'right' => $faker->opera,
+        'created_at' => now(),
     );
 });

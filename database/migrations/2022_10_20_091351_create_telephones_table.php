@@ -17,7 +17,7 @@ class CreateTelephonesTable extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->text('number');
-            $table->timestamp('created at')->useCurrent();
+            $table->timestamps();
         });
     }
 

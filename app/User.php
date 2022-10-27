@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'id', 'name', 'email', 'password', 'status'
+        'name', 'email', 'password', 'status',
     ];
 
     /**
@@ -40,7 +40,7 @@ class User extends Authenticatable
 
     public function adresse(): \Illuminate\Database\Eloquent\Relations\HasOne
     {
-        return $this->hasOne($this->newRelatedInstance(Adresse::class));
+        return $this->hasOne($this->newRelatedInstance(Addresse::class));
     }
 
 
@@ -56,7 +56,7 @@ class User extends Authenticatable
     }
 
 
-    public function parkingSpot(): \Illuminate\Database\Eloquent\Relations\HasOne
+    public function parkingspot(): \Illuminate\Database\Eloquent\Relations\HasOne
     {
         return $this->hasOne($this->newRelatedInstance(ParkingSpot::class));
     }

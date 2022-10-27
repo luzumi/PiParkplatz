@@ -2,8 +2,9 @@
 
 use App\Telephone;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
-class TelefonsTableSeeder extends Seeder
+class TelephonesTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,7 +13,7 @@ class TelefonsTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('telefons')->insert([
+        DB::table('telephones')->insert([
             factory(Telephone::class, 20)->create()->all()
         ]);
     }

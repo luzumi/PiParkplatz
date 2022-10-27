@@ -21,7 +21,7 @@ class CreateUsersTable extends Migration
             $table->text('password');
             $table->boolean('status')->default(true);
             $table->rememberToken();
-            $table->timestamp('last Visit')->useCurrent();
+            $table->timestams();
         });
     }
 

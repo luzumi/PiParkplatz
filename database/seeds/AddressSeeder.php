@@ -1,9 +1,10 @@
 <?php
 
+use App\Addresse;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class RightsTableSeeder extends Seeder
+class AddressSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,9 +13,8 @@ class RightsTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('rights')->insert([
-
-            factory(\App\Right::class, 20)->create()->all()
+        DB::table('addresses')->insert([
+            factory(Addresse::class, 20)->create()->all()
         ]);
     }
 }

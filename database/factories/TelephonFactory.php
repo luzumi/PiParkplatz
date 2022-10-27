@@ -8,7 +8,7 @@ use Faker\Generator as Faker;
 $factory->define(Telephone::class, function (Faker $faker) {
 
     return array(
-        'user_id' => rand(1,20),
+        'user_id' => $faker->unique(1,20)->randomDigit + 1,
         'number' => $faker->phoneNumber(),
     );
 });
